@@ -1,0 +1,25 @@
+# Requirements for this project. These versions were taken from the project's
+# virtualenv under `backend/Lib/site-packages` and should reproduce the
+# environment used during development. Adjust pins as needed for your deploy.
+
+fastapi==0.121.2
+uvicorn==0.38.0
+passlib==1.7.4
+# Use bcrypt 4.x to avoid behavior changes in bcrypt 5.x that raise on >72-byte inputs
+bcrypt==4.3.0
+motor==3.7.1
+pymongo==4.15.4
+pydantic==2.12.4
+pydantic-settings==2.12.0
+python-dotenv==1.2.1
+
+# optional / helpful packages often used with FastAPI
+websockets==15.0.1
+watchfiles==1.1.1
+anyio==4.11.0
+starlette==0.49.3
+
+# Note: if you prefer the native bcrypt backend (faster), you can install
+# a bcrypt>=5.x wheel and remove the PASSLIB_BUILTIN_BCRYPT env override in
+# `main.py`. For now this requirements file pins the 4.x bcrypt used in dev.
+
