@@ -190,3 +190,9 @@ async def require_session(authorization: Optional[str] = Header(None)):
 @app.get("/protected")
 async def protected_route(current_user: UserOut = Depends(require_session)):
     return {"message": f"Hello {current_user.username}, you are signed in."}
+
+if __name__ == "__main__":
+    import os
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
